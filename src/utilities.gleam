@@ -22,8 +22,14 @@ fn do_map(
 /// ## Examples
 ///
 /// ```gleam
-/// map([2, 4, 6], fn(x) { x * 2 })
-/// // -> [4, 8, 12]
+/// map_with_window([2, 4, 6], fn(prev, cur, next) { case prev, next {
+///   Some(_), Some(_) -> cur * 2
+///   Some(_), None -> cur + 50
+///   None, Some(_) -> cur * 3
+///   None, None -> cur - 10
+/// }
+///  })
+/// // -> [6, 8, 56]
 /// ```
 ///
 pub fn map_with_window(
