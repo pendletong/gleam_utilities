@@ -21,7 +21,7 @@ pub fn main() {
 
 pub fn map_test() {
   []
-  |> utilities.map_with_window(fn(p, c, n) { c * 2 })
+  |> utilities.map_with_window(fn(_p, c, _n) { c * 2 })
   |> should.equal([])
 
   [1]
@@ -41,10 +41,10 @@ pub fn map_test() {
   ])
 
   [0, 4, 5, 7, 3]
-  |> utilities.map_with_window(fn(p, c, n) { c * 2 })
+  |> utilities.map_with_window(fn(_p, c, _n) { c * 2 })
   |> should.equal([0, 8, 10, 14, 6])
 
   // TCO test
   list.repeat(0, recursion_test_cycles)
-  |> utilities.map_with_window(fn(p, c, n) { c })
+  |> utilities.map_with_window(fn(_p, c, _n) { c })
 }
